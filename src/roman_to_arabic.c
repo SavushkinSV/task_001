@@ -10,7 +10,7 @@ int convertRomanToAribic(char *str);
 
 int main() {
     char str[256];
-    scanf("%255s", str);
+    scanf("%[^\n\r]", str);
 
     if (!isRomanNumber(str)) {
         printf("%d", convertRomanToAribic(str));
