@@ -10,6 +10,7 @@ int getArabic(char c);
 int convertRomanToAribic(char *str);
 
 int main() {
+    int error = 0;
     char str[256];
     scanf("%255s", str);
 
@@ -19,9 +20,10 @@ int main() {
         printf("%d", convertRomanToAribic(str));
     } else {
         fprintf(stderr, "Puck you, Verter!");
+        error--;
     }
 
-    return 0;
+    return error;
 }
 
 /* Функция возвращает 0 если строка соответствует римскому нолю */
