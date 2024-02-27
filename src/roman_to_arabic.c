@@ -4,21 +4,33 @@
 #include <string.h>
 #include <sys/types.h>
 
+int isRomanNULL(char *str);
 int isRomanNumber(char *str);
 int getArabic(char c);
 int convertRomanToAribic(char *str);
 
 int main() {
     char str[256];
-    scanf("%[^\n\r]", str);
+    scanf("%255s", str);
 
-    if (!isRomanNumber(str)) {
+    if (!isRomanNULL(str)) {
+        printf("0");
+    } else if (!isRomanNumber(str)) {
         printf("%d", convertRomanToAribic(str));
     } else {
-        printf("Puck you, Verter!");
+        fprintf(stderr, "Puck you, Verter!");
     }
 
     return 0;
+}
+
+/* Функция возвращает 0 если строка соответствует римскому нолю */
+int isRomanNULL(char *str) {
+    int N = strcmp(str, "N");
+    int nihil = strcmp(str, "nihil");
+    int nulla = strcmp(str, "nulla");
+
+    return N && nihil && nulla;
 }
 
 /* Функция возвращает 0 если строка является римским числом */
