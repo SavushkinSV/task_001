@@ -52,32 +52,7 @@ int convertRomanToArabic() {
     return error;
 }
 
-/* Функция конвертирует арабские цифры в римские */
-/* Возвращает 0 если нет ошибок */
-int convertArabicToRoman() {
-    int error = 0;
-    int current = -1;
-    if (scanf("%d", &current) == 1 && current < 4000 && current > 0) {
-        int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        char *symbol[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
-        for (int i = 0; i < 13; i++) {
-            while (values[i] <= current) {
-                printf("%s", symbol[i]);
-                current -= values[i];
-            }
-        }
-
-    } else if (current == 0) {
-        printf("N");
-    } else {
-        fprintf(stderr, "Puck you, Verter!");
-        error--;
-    }
-    return error;
-}
-
-/* Функция возвращает 0 если строка соответствует римскому нолю */
+/* Функция возвращает 0 если строка соответствует римскому нулю */
 int isRomanNULL(char *str) {
     int N = strcmp(str, "N");
     int nihil = strcmp(str, "nihil");
@@ -144,4 +119,29 @@ int getRomanToAribic(char *str) {
     }
 
     return result;
+}
+
+/* Функция конвертирует арабские цифры в римские */
+/* Возвращает 0 если нет ошибок */
+int convertArabicToRoman() {
+    int error = 0;
+    int current = -1;
+    if (scanf("%d", &current) == 1 && current < 4000 && current > 0) {
+        int const values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        char const *symbol[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        for (int i = 0; i < 13; i++) {
+            while (values[i] <= current) {
+                printf("%s", symbol[i]);
+                current -= values[i];
+            }
+        }
+
+    } else if (current == 0) {
+        printf("N");
+    } else {
+        fprintf(stderr, "Puck you, Verter!");
+        error--;
+    }
+    return error;
 }
