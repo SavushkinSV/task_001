@@ -62,7 +62,7 @@ int convertArabicToRoman() {
         char *symbol[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
         for (int i = 0; i < 13; i++) {
-            while (values[i] < current) {
+            while (values[i] <= current) {
                 printf("%s", symbol[i]);
                 current -= values[i];
             }
